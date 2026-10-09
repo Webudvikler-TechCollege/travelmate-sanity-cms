@@ -2,27 +2,33 @@ import { defineField, defineType } from "sanity";
 
 export const language = defineType({
   name: "language",
-  title: "Sprog",
+  title: "Language",
   type: "document",
   fields: [
     defineField({
       name: "name",
-      title: "Navn",
+      title: "Name",
       type: "string",
-      description: "Sprogets navn, fx Dansk, English eller Deutsch.",
+      description: "Language name, fx Danish, English eller Deutsch.",
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: "image",
+      title: "Icon",
+      type: "image",
+    }),    
+    defineField({
       name: "code",
-      title: "Sprogkode",
+      title: "Country Code",
       type: "string",
-      description: "Sprogkode, fx da, en eller de. Brug fx en-US til en regional variant.",
+      description: "Country Code, fx da, en or de. Use fx en-US for regional variant.",
       validation: Rule => Rule.required(),
     }),
   ],
   preview: {
     select: {
       title: "name",
+      media: "image",
       subtitle: "code",
     },
   },

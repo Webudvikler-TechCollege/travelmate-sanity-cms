@@ -2,31 +2,34 @@ import { defineField, defineType } from "sanity";
 
 export const country = defineType({
   name: "country",
-  title: "Lande",
+  title: "Country",
   type: "document",
 
   fields: [
     defineField({
-      name: "name",
-      title: "Titel",
+      name: "code",
+      title: "Country Code",
       type: "string"
     }),
 
     defineField({
-      name: "code",
-      title: "Landekode",
-      type: "string"
-    }),
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "code",
+      },
+    }),        
     
     defineField({
       name: "image",
-      title: "Billede",
+      title: "Image",
       type: "image"
     }),
 
     defineField({
       name: "info",
-      title: "Sprog",
+      title: "Language",
       type: "array",
       of: [
         {
@@ -38,7 +41,7 @@ export const country = defineType({
 
   preview: {
     select: {
-      title: 'name',
+      title: "info.0.name",
       media: "image",
       subtitle: "code",
     },

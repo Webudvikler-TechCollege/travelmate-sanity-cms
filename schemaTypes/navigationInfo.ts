@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
-export const countryInfo = defineType({
-  name: 'countryInfo',
+export const navigationInfo = defineType({
+  name: 'navigationInfo',
   title: 'Translations',
   type: 'object',
 
@@ -15,15 +15,10 @@ export const countryInfo = defineType({
     }),
 
     defineField({
-      name: 'name',
+      name: 'title',
       title: 'Title',
       type: 'string',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    }),
+    })
   ],
   preview: {
     select: {

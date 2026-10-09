@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
-export const countryInfo = defineType({
-  name: 'countryInfo',
+export const attractionInfo = defineType({
+  name: 'attractionInfo',
   title: 'Translations',
   type: 'object',
 
@@ -13,7 +13,6 @@ export const countryInfo = defineType({
       to: [{type: 'language'}],
       validation: (Rule) => Rule.required(),
     }),
-
     defineField({
       name: 'name',
       title: 'Title',
@@ -24,13 +23,22 @@ export const countryInfo = defineType({
       title: 'Description',
       type: 'text',
     }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'attractionInfo.name',
+      },
+    }),
   ],
   preview: {
     select: {
-      title: 'name',
+      title: "name",
+      subtitle: "code",
       media: 'language.image',
       language: 'language.code',
-    },
+    },    
     prepare({title, language, media}) {
       return {
         media: media,
